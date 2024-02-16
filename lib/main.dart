@@ -10,14 +10,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+      home: MyHomePage(
+        title: "ToDo App",
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -45,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       floatingActionButton: FloatingActionButton.large(
         onPressed: () => _showAddToDoDialog(),
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       appBar: AppBar(
         title: Text(widget.title),
@@ -93,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           actions: [
             TextButton(
-              child: const Text('Saqlash'),
+              child: const Text("Qo'shish"),
               onPressed: () async {
                 if (title.isNotEmpty && description.isNotEmpty) {
                   await repository.createToDo(title, description);
